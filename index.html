@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalTrade | Création de sites & Growth au Togo</title>
+    <meta name="description" content="Agence digitale à Lomé. Spécialisés en création de sites rapides (Vibe Coding), sourcing et publicités Meta. Lancez votre boutique et vendez plus.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo-rond.png">
+
+    <!-- Balises Open Graph (Partage WhatsApp & Réseaux Sociaux) -->
+    <meta property="og:title" content="DigitalTrade | Agency - Création de sites et Growth">
+    <meta property="og:description" content="Lance ta boutique et fais tes premières ventes en 14 jours. Sites Vibe Coding, Sourcing et Meta Ads.">
+    <meta property="og:image" content="logo-rond.png">
+    <meta property="og:type" content="website">
+
+    <!-- Typographies Google Fonts : Bebas Neue (Titres) & Inter (Corps de texte) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN avec configuration sur-mesure -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: '#F8FAFC',    /* Fond blanc cassé premium */
+                        ink: {
+                            DEFAULT: '#1E293B', /* Gris foncé texte principal */
+                            muted: '#64748B',   /* Gris secondaire */
+                            light: '#94A3B8',
+                        },
+                        midnight: {
+                            DEFAULT: '#0F172A', /* Bleu nuit titres & header */
+                            dark: '#0A0F1D',
+                        },
+                        brand: {
+                            orange: '#EA580C',  /* Accentuation Orange vif */
+                            orangeHover: '#C2410C',
+                            orangeLight: '#FFF7ED',
+                        }
+                    },
+                    fontFamily: {
+                        title: ['"Bebas Neue"', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 4px 6px -2px rgba(15, 23, 42, 0.02)',
+                        'hover': '0 20px 40px -10px rgba(234, 88, 12, 0.14), 0 10px 15px -3px rgba(15, 23, 42, 0.04)',
+                        'modal': '0 25px 60px -15px rgba(15, 23, 42, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Styles sur-mesure pour animations et interactions -->
+    <style>
+        /* Animation fade-in au scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cartes interactives avec survol */
+        .card-hover {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+        }
+
+        /* Bloquer le défilement lors de l'ouverture de la modale */
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* Sélection de texte */
+        ::selection {
+            background-color: #EA580C;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-surface text-ink font-sans antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- ========================================================================= -->
+    <!-- 1. HEADER (NAVIGATION FIXE) -->
+    <!-- ========================================================================= -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo & Nom de Marque -->
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="logo-rond.png" alt="Logo DigitalTrade" class="h-10 w-10 rounded-full object-cover object-top border border-gray-200 shadow-sm">
+                <div class="flex items-baseline gap-1.5">
+                    <span class="font-title text-2xl sm:text-3xl tracking-wider text-midnight group-hover:text-brand-orange transition-colors">
+                        DIGITALTRADE
+                    </span>
+                    <span class="hidden md:inline-block text-xs sm:text-sm font-semibold text-ink-muted group-hover:text-brand-orange transition-colors tracking-wide">
+                        | Agency
+                    </span>
+                </div>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide text-ink">
+                <a href="#services" class="hover:text-brand-orange transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-brand-orange transition-colors">Portfolio</a>
+                <a href="#temoignages" class="hover:text-brand-orange transition-colors">Témoignages</a>
+                <a href="#process" class="hover:text-brand-orange transition-colors">Process</a>
+                <a href="#contact" class="hover:text-brand-orange transition-colors">Contact</a>
+            </nav>
+
+            <!-- Bouton CTA Desktop (Bleu Nuit) -->
+            <div class="hidden md:flex items-center">
+                <a href="https://wa.me/22890764382?text=Salut%20DigitalTrade%20%7C%20Agency%2C%20je%20veux%20discuter%20de%20mon%20projet." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold bg-midnight text-white hover:bg-brand-orange transition-colors duration-200 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Discuter</span>
+                </a>
+            </div>
+
+            <!-- Bouton Burger Mobile (3 lignes) -->
+            <button id="mobile-toggle" class="md:hidden p-2 rounded-lg text-midnight hover:text-brand-orange focus:outline-none" aria-label="Ouvrir le menu">
+                <svg id="burger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menu Déroulant Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white px-6 py-6 shadow-xl">
+            <nav class="flex flex-col gap-4 text-base font-semibold text-midnight">
+                <a href="#services" class="mobile-link py-2 border-b border-slate-100 hover:text-brand-orange">Services</a>
+                <a href="#portfolio" class="mobile-link py-2 border-b border-slate-100 hover:text-brand-orange">Portfolio</a>
+                <a href="#temoignages" class="mobile-link py-2 border-b border-slate-100 hover:text-brand-orange">Témoignages</a>
+                <a href="#process" class="mobile-link py-2 border-b border-slate-100 hover:text-brand-orange">Process</a>
+                <a href="#contact" class="mobile-link py-2 hover:text-brand-orange">Contact</a>
+                <a href="https://wa.me/22890764382?text=Salut%20DigitalTrade%20%7C%20Agency%2C%20je%20veux%20discuter%20de%20mon%20projet." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="mt-2 flex items-center justify-center gap-2 py-3 rounded-lg bg-brand-orange text-white font-bold text-sm tracking-wider uppercase">
+                    <span>Discuter sur WhatsApp</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- ========================================================================= -->
+        <!-- 2. HERO SECTION -->
+        <!-- ========================================================================= -->
+        <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Colonne Texte -->
+                <div class="lg:col-span-7 text-left reveal">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-wider mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+                        AGENCE DIGITALE NOUVELLE GÉNÉRATION
+                    </div>
+
+                    <h1 class="font-title text-5xl sm:text-7xl md:text-8xl text-midnight tracking-tight uppercase leading-[0.95] mb-6">
+                        CONSTRUIS TA PRÉSENCE EN LIGNE. <br>
+                        <span class="text-brand-orange">VENDS PLUS.</span>
+                    </h1>
+
+                    <p class="text-ink-muted text-lg sm:text-xl font-normal leading-relaxed max-w-2xl mb-8">
+                        Nous concevons des sites ultra-rapides, des créatives publicitaires à fort impact et des agents IA intelligents qui automatisent tes ventes et boostent ta croissance.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="https://wa.me/22890764382?text=Salut%20DigitalTrade%20%7C%20Agency%2C%20je%20veux%20discuter%20de%20mon%20projet." 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-white bg-brand-orange hover:bg-brand-orangeHover transition-colors shadow-lg shadow-brand-orange/20 text-base">
+                            <!-- WhatsApp Icon -->
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                            </svg>
+                            <span>Discuter sur WhatsApp</span>
+                        </a>
+
+                        <a href="#services" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-midnight bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all text-base shadow-sm">
+                            <span>Découvrir nos services</span>
+                            <svg class="w-4 h-4 text-ink-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colonne Image Droite (Unsplash) avec carte flottante -->
+                <div class="lg:col-span-5 reveal">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-2 bg-gradient-to-tr from-brand-orange/20 to-slate-200 rounded-3xl -rotate-1"></div>
+                        <div class="relative bg-white p-2 rounded-2xl shadow-soft border border-slate-200/60 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop" 
+                                 alt="Équipe tech et design DigitalTrade Agency" 
+                                 class="w-full h-80 sm:h-96 object-cover rounded-xl"
+                                 loading="eager">
+                            
+                            <!-- Carte Flottante Résultats Clients -->
+                            <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-slate-100 shadow-md flex items-center justify-between">
+                                <div>
+                                    <p class="text-[11px] font-bold text-ink-muted uppercase tracking-wider">RÉSULTATS CLIENTS</p>
+                                    <p class="font-title text-2xl text-midnight tracking-wide">+350% DE CROISSANCE MOYENNE</p>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg">
+                                    ↗
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 3. BARRE DE CONFIANCE (3 BADGES) -->
+        <!-- ========================================================================= -->
+        <section class="border-y border-slate-200/70 bg-white py-8 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                
+                <div class="flex items-center justify-center md:justify-start gap-4 p-4 rounded-xl bg-surface border border-slate-100 reveal">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-2xl flex-shrink-0">
+                        ⚡
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-midnight text-base">Site Rapide & Léger</h4>
+                        <p class="text-xs text-ink-muted">Chargement en moins d'une seconde, mobile-first.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center md:justify-start gap-4 p-4 rounded-xl bg-surface border border-slate-100 reveal">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center text-2xl flex-shrink-0">
+                        💎
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-midnight text-base">Design Premium</h4>
+                        <p class="text-xs text-ink-muted">UI moderne, finitions soignées et image de marque forte.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center md:justify-start gap-4 p-4 rounded-xl bg-surface border border-slate-100 reveal">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center text-2xl flex-shrink-0">
+                        🤖
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-midnight text-base">Propulsé par l'IA</h4>
+                        <p class="text-xs text-ink-muted">Automatisation de pointe et Vibe Coding nouvelle ère.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 4. SECTION SERVICES & MODALES (6 CARTES) -->
+        <!-- ========================================================================= -->
+        <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-brand-orange font-bold text-xs tracking-widest uppercase">Nos Expertises</span>
+                <h2 class="font-title text-5xl sm:text-6xl text-midnight tracking-wide uppercase mt-2">
+                    Solutions Clés en Main
+                </h2>
+                <p class="text-ink-muted text-base sm:text-lg mt-3">
+                    Clique sur chaque service pour découvrir une étude de cas concrète et mesurer notre impact.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Carte 1 : Sites & Boutiques -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft flex flex-col justify-between reveal transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:border-orange-500">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-orangeLight text-brand-orange flex items-center justify-center mb-6 text-xl font-bold">
+                            💻
+                        </div>
+                        <span class="text-xs font-bold text-brand-orange tracking-widest uppercase">01. Conception</span>
+                        <h3 class="font-title text-3xl text-midnight tracking-wide uppercase mt-1 mb-3">
+                            Sites & Boutiques (Vibe Coding)
+                        </h3>
+                        <p class="text-ink-muted text-sm leading-relaxed mb-6">
+                            Développement ultra-rapide de landing pages et boutiques e-commerce conçues pour convertir vos visiteurs en acheteurs dès le premier regard.
+                        </p>
+                    </div>
+                    <div>
+                        <button class="open-modal-btn w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider text-midnight bg-surface hover:bg-brand-orange hover:text-white border border-slate-200 transition-all duration-200" 
+                                data-service="sites">
+                            <span>Voir le projet</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carte 2 : Vidéo Publicitaire (UGC) -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft flex flex-col justify-between reveal transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:border-orange-500">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-orangeLight text-brand-orange flex items-center justify-center mb-6 text-xl font-bold">
+                            🎬
+                        </div>
+                        <span class="text-xs font-bold text-brand-orange tracking-widest uppercase">02. Création</span>
+                        <h3 class="font-title text-3xl text-midnight tracking-wide uppercase mt-1 mb-3">
+                            Vidéo Publicitaire (UGC)
+                        </h3>
+                        <p class="text-ink-muted text-sm leading-relaxed mb-6">
+                            Création de vidéos style créateur authentique (UGC) pour capter l’attention sur TikTok, Instagram Reels et YouTube Shorts avec des hooks percutants.
+                        </p>
+                    </div>
+                    <div>
+                        <button class="open-modal-btn w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider text-midnight bg-surface hover:bg-brand-orange hover:text-white border border-slate-200 transition-all duration-200" 
+                                data-service="video">
+                            <span>Voir le projet</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carte 3 : Meta & TikTok Ads -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft flex flex-col justify-between reveal transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:border-orange-500">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-orangeLight text-brand-orange flex items-center justify-center mb-6 text-xl font-bold">
+                            📈
+                        </div>
+                        <span class="text-xs font-bold text-brand-orange tracking-widest uppercase">03. Performance</span>
+                        <h3 class="font-title text-3xl text-midnight tracking-wide uppercase mt-1 mb-3">
+                            Meta & TikTok Ads
+                        </h3>
+                        <p class="text-ink-muted text-sm leading-relaxed mb-6">
+                            Pilotage et scaling de campagnes d'acquisition payante. Tracking haute précision, stratégie de retargeting et optimisation continue du coût par acquisition.
+                        </p>
+                    </div>
+                    <div>
+                        <button class="open-modal-btn w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider text-midnight bg-surface hover:bg-brand-orange hover:text-white border border-slate-200 transition-all duration-200" 
+                                data-service="ads">
+                            <span>Voir le projet</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carte 4 : Sourcing Produits -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft flex flex-col justify-between reveal transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:border-orange-500">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-orangeLight text-brand-orange flex items-center justify-center mb-6 text-xl font-bold">
+                            📦
+                        </div>
+                        <span class="text-xs font-bold text-brand-orange tracking-widest uppercase">04. Logistique</span>
+                        <h3 class="font-title text-3xl text-midnight tracking-wide uppercase mt-1 mb-3">
+                            Sourcing Produits
+                        </h3>
+                        <p class="text-ink-muted text-sm leading-relaxed mb-6">
+                            Identification de fabricants de confiance et agents d’approvisionnement. Négociation directe des marges, emballage soigné et réduction des délais de livraison.
+                        </p>
+                    </div>
+                    <div>
+                        <button class="open-modal-btn w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider text-midnight bg-surface hover:bg-brand-orange hover:text-white border border-slate-200 transition-all duration-200" 
+                                data-service="sourcing">
+                            <span>Voir le projet</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carte 5 : Automatisation -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft flex flex-col justify-between reveal transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:border-orange-500">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-orangeLight text-brand-orange flex items-center justify-center mb-6 text-xl font-bold">
+                            ⚙️
+                        </div>
+                        <span class="text-xs font-bold text-brand-orange tracking-widest uppercase">05. Efficacité</span>
+                        <h3 class="font-title text-3xl text-midnight tracking-wide uppercase mt-1 mb-3">
+                            Automatisation
+                        </h3>
+                        <p class="text-ink-muted text-sm leading-relaxed mb-6">
+                            Liaison intelligente entre votre CRM, vos ventes, votre comptabilité et votre gestion client avec Make et n8n pour supprimer les tâches chronophages.
+                        </p>
+                    </div>
+                    <div>
+                        <button class="open-modal-btn w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider text-midnight bg-surface hover:bg-brand-orange hover:text-white border border-slate-200 transition-all duration-200" 
+                                data-service="automation">
+                            <span>Voir le projet</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carte 6 : Agent IA -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft flex flex-col justify-between reveal transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:border-orange-500">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-orangeLight text-brand-orange flex items-center justify-center mb-6 text-xl font-bold">
+                            🤖
+                        </div>
+                        <span class="text-xs font-bold text-brand-orange tracking-widest uppercase">06. Intelligence Artificielle</span>
+                        <h3 class="font-title text-3xl text-midnight tracking-wide uppercase mt-1 mb-3">
+                            Agent IA Sur-Mesure
+                        </h3>
+                        <p class="text-ink-muted text-sm leading-relaxed mb-6">
+                            Intégration d'assistants IA conversationnels sur WhatsApp et votre site pour qualifier vos leads, répondre aux questions 24/7 et conclure des ventes.
+                        </p>
+                    </div>
+                    <div>
+                        <button class="open-modal-btn w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider text-midnight bg-surface hover:bg-brand-orange hover:text-white border border-slate-200 transition-all duration-200" 
+                                data-service="ai">
+                            <span>Voir le projet</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 5. SECTION PORTFOLIO (PROJET À L'HONNEUR - HOOPZ CORNER) -->
+        <!-- ========================================================================= -->
+        <section id="portfolio" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-brand-orange font-bold text-xs tracking-widest uppercase">Réalisations</span>
+                <h2 class="font-title text-5xl sm:text-6xl text-midnight tracking-wide uppercase mt-2">
+                    Projet à l'Honneur
+                </h2>
+                <p class="text-ink-muted text-base sm:text-lg mt-3">
+                    Un aperçu concret de notre capacité à concevoir et lancer des boutiques prêtes à générer du chiffre d'affaires.
+                </p>
+            </div>
+
+            <!-- Grande carte Hoopz Corner -->
+            <div class="bg-white rounded-3xl border border-slate-200/80 shadow-soft overflow-hidden reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
+                    
+                    <!-- Grande image Unsplash Panier de Basketball -->
+                    <div class="lg:col-span-7 bg-slate-900 relative group overflow-hidden h-80 sm:h-[450px]">
+                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop" 
+                             alt="Hoopz Corner Showcase" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-transparent"></div>
+                        
+                        <!-- Badge sur l'image -->
+                        <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white">
+                            <div>
+                                <span class="bg-brand-orange text-white text-xs font-bold uppercase px-3 py-1 rounded-md">Boutique E-commerce NBA</span>
+                                <h4 class="font-title text-3xl tracking-wide uppercase mt-1">HOOPZ CORNER</h4>
+                            </div>
+                            <span class="text-xs font-mono bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-lg">
+                                Vibe Coding & Headless
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Descriptif et résultats -->
+                    <div class="lg:col-span-5 p-8 sm:p-12">
+                        <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">Étude de Cas E-commerce</span>
+                        <h3 class="font-title text-4xl sm:text-5xl text-midnight tracking-wide uppercase mt-2 mb-4">
+                            HOOPZ CORNER
+                        </h3>
+                        <p class="text-ink-muted text-sm sm:text-base leading-relaxed mb-6">
+                            Boutique e-commerce NBA et basketball streetwear à Lomé. Site ultra-rapide avec panier interactif, checkout fluide et tunnel de commande instantané sur WhatsApp.
+                        </p>
+
+                        <!-- Liste des résultats clés -->
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-ink font-medium">
+                                <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">✓</span>
+                                Tunnel de vente 1-clic optimisé mobile
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-ink font-medium">
+                                <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">✓</span>
+                                Score de vitesse Google PageSpeed : 98/100
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-ink font-medium">
+                                <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">✓</span>
+                                Campagnes Meta & TikTok avec un ROAS de 4.8
+                            </div>
+                        </div>
+
+                        <!-- Bouton d'action -->
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                            <a href="https://wa.me/22890764382?text=Salut%20DigitalTrade%20%7C%20Agency%2C%20j'ai%20vu%20le%20projet%20Hoopz%20Corner%20et%20je%20veux%20commander%20une%20boutique%20similaire." 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-midnight hover:bg-brand-orange transition-colors">
+                                <span>Commander une boutique similaire</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 6. SECTION TÉMOIGNAGES (RETOURS CLIENTS) -->
+        <!-- ========================================================================= -->
+        <section id="temoignages" class="py-24 px-4 sm:px-6 lg:px-8 bg-surface border-y border-slate-200/60 relative">
+            <div class="max-w-7xl mx-auto">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <span class="text-brand-orange font-bold text-xs tracking-widest uppercase">Avis Clients</span>
+                    <h2 class="font-title text-5xl sm:text-6xl text-midnight tracking-wide uppercase mt-2">
+                        ILS NOUS ONT FAIT CONFIANCE
+                    </h2>
+                    <p class="text-ink-muted text-base sm:text-lg mt-3">
+                        Des résultats concrets pour des entrepreneurs comme vous.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Carte 1 : Amina K. -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft flex flex-col justify-between card-hover reveal">
+                        <div>
+                            <!-- 5 étoiles en orange -->
+                            <div class="flex items-center gap-1 text-brand-orange mb-6" aria-label="5 étoiles">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-ink text-sm sm:text-base leading-relaxed italic mb-6">
+                                "L'équipe a refait notre boutique en un temps record. Le site est ultra rapide et nos ventes ont décollé dès la première semaine."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-orange/10 text-brand-orange font-bold text-xs flex items-center justify-center flex-shrink-0">
+                                AK
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-midnight text-sm">Amina K.</h4>
+                                <p class="text-xs text-ink-muted">Glow Lomé</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte 2 : Marc D. -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft flex flex-col justify-between card-hover reveal">
+                        <div>
+                            <!-- 5 étoiles en orange -->
+                            <div class="flex items-center gap-1 text-brand-orange mb-6" aria-label="5 étoiles">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-ink text-sm sm:text-base leading-relaxed italic mb-6">
+                                "Grâce à leurs campagnes Meta, nous avons rempli le restaurant tous les week-ends. Un vrai investissement rentable."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-orange/10 text-brand-orange font-bold text-xs flex items-center justify-center flex-shrink-0">
+                                MD
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-midnight text-sm">Marc D.</h4>
+                                <p class="text-xs text-ink-muted">Le Maquis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte 3 : David T. -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft flex flex-col justify-between card-hover reveal">
+                        <div>
+                            <!-- 5 étoiles en orange -->
+                            <div class="flex items-center gap-1 text-brand-orange mb-6" aria-label="5 étoiles">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-ink text-sm sm:text-base leading-relaxed italic mb-6">
+                                "Le sourcing et l'automatisation ont transformé notre gestion, nous avons réduit nos coûts de 30%."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-orange/10 text-brand-orange font-bold text-xs flex items-center justify-center flex-shrink-0">
+                                DT
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-midnight text-sm">David T.</h4>
+                                <p class="text-xs text-ink-muted">TechAccess</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 7. SECTION PROCESS (3 ÉTAPES) -->
+        <!-- ========================================================================= -->
+        <section id="process" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-brand-orange font-bold text-xs tracking-widest uppercase">Comment ça marche</span>
+                <h2 class="font-title text-5xl sm:text-6xl text-midnight tracking-wide uppercase mt-2">
+                    Un Process Simple en 3 Étapes
+                </h2>
+                <p class="text-ink-muted text-base sm:text-lg mt-3">
+                    Aucune complexité technique pour vous. Nous transformons votre ambition en machine à vendre.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Étape 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft relative card-hover reveal">
+                    <div class="font-title text-5xl text-brand-orange/40 tracking-wider mb-4">01</div>
+                    <h3 class="font-title text-3xl text-midnight tracking-wide uppercase mb-3">
+                        On définit ton besoin
+                    </h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">
+                        Un premier échange ciblé via WhatsApp ou en appel de cadrage. Nous analysons votre cible, vos objectifs de vente et définissons la meilleure stratégie.
+                    </p>
+                </div>
+
+                <!-- Étape 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft relative card-hover reveal">
+                    <div class="font-title text-5xl text-brand-orange/40 tracking-wider mb-4">02</div>
+                    <h3 class="font-title text-3xl text-midnight tracking-wide uppercase mb-3">
+                        Je construis avec l'IA
+                    </h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">
+                        Grâce au Vibe Coding et aux meilleurs modèles d'IA, nous concevons votre site, vos vidéos et vos automatisations en un temps record avec une qualité irréprochable.
+                    </p>
+                </div>
+
+                <!-- Étape 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-soft relative card-hover reveal">
+                    <div class="font-title text-5xl text-brand-orange/40 tracking-wider mb-4">03</div>
+                    <h3 class="font-title text-3xl text-midnight tracking-wide uppercase mb-3">
+                        Tu es livré et formé
+                    </h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">
+                        Mise en ligne complète. Vous recevez un accompagnement clair pour gérer votre boutique ou nous continuons à piloter votre acquisition au quotidien.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 8. SECTION CONTACT (GRAND BLOC BLEU NUIT) -->
+        <!-- ========================================================================= -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center reveal">
+            <div class="bg-midnight rounded-3xl p-10 sm:p-16 text-white shadow-2xl relative overflow-hidden">
+                
+                <span class="inline-block px-4 py-1.5 rounded-full bg-brand-orange/20 text-brand-orange text-xs font-bold uppercase tracking-wider mb-6">
+                    Prise de contact rapide
+                </span>
+
+                <h2 class="font-title text-5xl sm:text-6xl md:text-7xl tracking-wide uppercase mb-6 leading-none">
+                    PRÊT À LANCER TON PROJET ?
+                </h2>
+
+                <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+                    Pas de formulaires interminables. Écris-nous directement sur WhatsApp pour discuter de tes ambitions et obtenir une estimation personnalisée.
+                </p>
+
+                <a href="https://wa.me/22890764382?text=Salut%20DigitalTrade%20%7C%20Agency%2C%20je%20veux%20discuter%20de%20mon%20projet." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-brand-orange hover:bg-brand-orangeHover text-white font-extrabold text-base sm:text-lg uppercase tracking-wider shadow-xl shadow-brand-orange/30 hover:scale-105 active:scale-95 transition-all duration-200">
+                    <!-- WhatsApp Icon -->
+                    <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                    <span>Discuter sur WhatsApp</span>
+                </a>
+
+                <p class="text-xs text-slate-400 mt-5 font-mono">
+                    Réponse généralement en moins d'une heure.
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- 9. FOOTER -->
+    <!-- ========================================================================= -->
+    <footer class="border-t border-slate-200 bg-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <!-- Logo Footer DigitalTrade | Agency -->
+            <div class="flex items-center gap-3">
+                <img src="logo-rond.png" alt="Logo DigitalTrade" class="h-9 w-9 rounded-full object-cover object-top border border-gray-200 shadow-sm">
+                <div class="flex items-baseline gap-1.5">
+                    <span class="font-title text-xl text-midnight tracking-wider">
+                        DIGITALTRADE
+                    </span>
+                    <span class="hidden md:inline-block text-xs text-ink-muted font-semibold">
+                        | Agency
+                    </span>
+                </div>
+                <span class="text-xs text-ink-muted border-l border-slate-200 pl-3">
+                    Sites, Sourcing & Growth
+                </span>
+            </div>
+
+            <!-- Liens navigation -->
+            <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-medium text-ink-muted">
+                <a href="#services" class="hover:text-brand-orange transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-brand-orange transition-colors">Portfolio</a>
+                <a href="#temoignages" class="hover:text-brand-orange transition-colors">Témoignages</a>
+                <a href="#process" class="hover:text-brand-orange transition-colors">Process</a>
+                <a href="#contact" class="hover:text-brand-orange transition-colors">Contact</a>
+                <a href="#" class="hover:text-brand-orange transition-colors">Mentions Légales</a>
+                <a href="#" class="hover:text-brand-orange transition-colors">Confidentialité</a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-xs text-ink-muted font-mono">
+                &copy; 2026 DigitalTrade. Tous droits réservés.
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- 10. MODALE INTERACTIVE UNIFIÉE (POP-UP ÉTUDES DE CAS) -->
+    <!-- ========================================================================= -->
+    <div id="service-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-midnight/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" aria-hidden="true" role="dialog">
+        
+        <!-- Boîte de dialogue de la modale -->
+        <div id="modal-container" class="bg-white w-full max-w-2xl rounded-3xl shadow-modal border border-slate-200 overflow-hidden transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col">
+            
+            <!-- En-tête de la modale -->
+            <div class="p-6 sm:p-8 border-b border-slate-100 flex items-start justify-between bg-surface">
+                <div>
+                    <span id="modal-badge" class="text-xs font-bold uppercase tracking-wider text-brand-orange">
+                        Étude de Cas
+                    </span>
+                    <h3 id="modal-title" class="font-title text-3xl sm:text-4xl text-midnight tracking-wide uppercase mt-1">
+                        Titre du Service
+                    </h3>
+                </div>
+                <button id="close-modal-btn" class="text-ink-muted hover:text-midnight p-2 rounded-xl hover:bg-slate-200/60 transition-colors" aria-label="Fermer la modale">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Contenu défilable -->
+            <div class="p-6 sm:p-8 overflow-y-auto space-y-6">
+                
+                <!-- Zone image spécifique (ex: Hoopz Corner) -->
+                <div id="modal-image-wrapper" class="hidden">
+                    <img id="modal-image" src="" alt="Aperçu du projet" class="w-full h-48 sm:h-56 object-cover rounded-xl border border-slate-200">
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase text-ink-muted tracking-wider mb-2">Description du Service</h4>
+                    <p id="modal-description" class="text-ink text-sm sm:text-base leading-relaxed">
+                        Description détaillée du service...
+                    </p>
+                </div>
+
+                <!-- Boîte Étude de cas concrète -->
+                <div class="bg-surface rounded-2xl p-6 border border-slate-200/80">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-extrabold uppercase tracking-wider text-brand-orange flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+                            Projet Réalisé
+                        </span>
+                        <span id="modal-case-tag" class="text-xs font-mono bg-white px-2.5 py-1 rounded-md border border-slate-200 text-ink-muted">
+                            Résultats prouvés
+                        </span>
+                    </div>
+
+                    <h5 id="modal-case-title" class="font-title text-2xl text-midnight uppercase tracking-wide mb-2">
+                        Nom de l'Étude de Cas
+                    </h5>
+
+                    <p id="modal-case-content" class="text-sm text-ink-muted leading-relaxed">
+                        Détails sur les actions mises en place et les résultats chiffrés obtenus.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Pied de page de la modale avec bouton WhatsApp -->
+            <div class="p-6 sm:p-8 border-t border-slate-100 bg-surface flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span class="text-xs text-ink-muted">
+                    Prêt à obtenir des résultats équivalents ?
+                </span>
+                <a id="modal-whatsapp-link" 
+                   href="https://wa.me/22890764382?text=Salut%20DigitalTrade%20%7C%20Agency%2C%20je%20veux%20discuter%20de%20mon%20projet." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-bold text-xs uppercase tracking-wider shadow-md transition-colors">
+                    <!-- WhatsApp Icon -->
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                    <span>Lancer ce service sur WhatsApp</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 11. JAVASCRIPT NATIF (MENU MOBILE, MODALES & ANIMATIONS AU SCROLL) -->
+    <!-- ========================================================================= -->
+    <script>
+        // -------------------------------------------------------------
+        // Données complètes des 6 modales selon le cahier des charges
+        // -------------------------------------------------------------
+        const servicesData = {
+            'sites': {
+                badge: 'Étude de Cas E-commerce',
+                title: 'Sites & Boutiques (Vibe Coding)',
+                description: 'Grâce au Vibe Coding et aux architectures modernes, nous créons des sites et boutiques ultra-rapides, élégants et conçus pour convertir vos visiteurs en acheteurs dès le premier regard.',
+                caseTitle: 'Hoopz Corner',
+                caseTag: 'Boutique E-commerce NBA',
+                caseContent: 'Boutique e-commerce NBA à Lomé. Site ultra-rapide avec panier interactif et commande WhatsApp.',
+                image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop',
+                whatsappMsg: 'Salut DigitalTrade | Agency, j\'ai vu le projet Hoopz Corner et je veux créer une boutique similaire.'
+            },
+            'video': {
+                badge: 'Étude de Cas Créatives UGC',
+                title: 'Vidéo Publicitaire (UGC)',
+                description: 'Création de vidéos publicitaires dynamiques style User Generated Content (UGC) pour capter l\'attention dès les 3 premières secondes sur TikTok, Reels et Shorts.',
+                caseTitle: 'Glow Lomé',
+                caseTag: 'Cosmétiques & UGC Viral',
+                caseContent: '10 vidéos UGC cosmétiques. +45% d\'engagement TikTok.',
+                image: null,
+                whatsappMsg: 'Salut DigitalTrade | Agency, j\'ai vu le projet Glow Lomé et je veux des vidéos publicitaires UGC percutantes.'
+            },
+            'ads': {
+                badge: 'Étude de Cas Acquisition Payante',
+                title: 'Meta & TikTok Ads',
+                description: 'Gestion stratégique de campagnes publicitaires à fort retour sur investissement. Ciblage affiné, testing continu et optimisation du coût par acquisition.',
+                caseTitle: 'Le Maquis',
+                caseTag: 'Campagne Meta Ads Restaurant',
+                caseContent: 'Campagne Meta Ads restaurant. Coût par clic réduit de 30%.',
+                image: null,
+                whatsappMsg: 'Salut DigitalTrade | Agency, j\'ai vu le projet Le Maquis et je veux optimiser mes publicités Meta & TikTok.'
+            },
+            'sourcing': {
+                badge: 'Étude de Cas Supply Chain',
+                title: 'Sourcing Produits',
+                description: 'Recherche de fabricants fiables, négociation directe des prix d\'achat, contrôle de la qualité et optimisation de la chaîne logistique internationale.',
+                caseTitle: 'TechAccess',
+                caseTag: 'Accessoires Téléphone',
+                caseContent: 'Sourcing accessoires téléphone. Marge passée de 15% à 40%.',
+                image: null,
+                whatsappMsg: 'Salut DigitalTrade | Agency, j\'ai vu le projet TechAccess et je cherche un accompagnement en sourcing produits.'
+            },
+            'automation': {
+                badge: 'Étude de Cas Automatisation',
+                title: 'Automatisation',
+                description: 'Connexion intelligente de vos outils métier avec Make et n8n. Élimination des tâches manuelles répétitives pour un business qui tourne en pilote automatique.',
+                caseTitle: 'Cabinet Conseil',
+                caseTag: 'Automatisation n8n Leads',
+                caseContent: 'Automatisation n8n leads vers WhatsApp. Zéro lead perdu.',
+                image: null,
+                whatsappMsg: 'Salut DigitalTrade | Agency, j\'ai vu le projet Cabinet Conseil et je veux automatiser la gestion de mes leads.'
+            },
+            'ai': {
+                badge: 'Étude de Cas Intelligence Artificielle',
+                title: 'Agent IA Sur-Mesure',
+                description: 'Déploiement d\'agents conversationnels intelligents entraînés sur votre catalogue, disponibles 24/7 sur WhatsApp et sur votre site pour qualifier vos leads et vendre.',
+                caseTitle: 'Service Client Auto',
+                caseTag: 'Assistant IA WhatsApp 24/7',
+                caseContent: 'Agent IA connecté à 50 produits pour répondre 24/7.',
+                image: null,
+                whatsappMsg: 'Salut DigitalTrade | Agency, j\'ai vu le projet Service Client Auto et je veux un agent IA pour mon entreprise.'
+            }
+        };
+
+        // -------------------------------------------------------------
+        // Gestion de la modale interactive
+        // -------------------------------------------------------------
+        const modal = document.getElementById('service-modal');
+        const modalContainer = document.getElementById('modal-container');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const openModalBtns = document.querySelectorAll('.open-modal-btn');
+
+        const modalBadge = document.getElementById('modal-badge');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const modalCaseTitle = document.getElementById('modal-case-title');
+        const modalCaseTag = document.getElementById('modal-case-tag');
+        const modalCaseContent = document.getElementById('modal-case-content');
+        const modalImageWrapper = document.getElementById('modal-image-wrapper');
+        const modalImage = document.getElementById('modal-image');
+        const modalWhatsappLink = document.getElementById('modal-whatsapp-link');
+
+        function openModal(serviceKey) {
+            const data = servicesData[serviceKey];
+            if (!data) return;
+
+            modalBadge.textContent = data.badge;
+            modalTitle.textContent = data.title;
+            modalDescription.textContent = data.description;
+            modalCaseTitle.textContent = data.caseTitle;
+            modalCaseTag.textContent = data.caseTag;
+            modalCaseContent.textContent = data.caseContent;
+            modalWhatsappLink.href = 'https://wa.me/22890764382?text=' + encodeURIComponent(data.whatsappMsg);
+
+            // Gestion de l'image (si présente pour Hoopz Corner)
+            if (data.image) {
+                modalImage.src = data.image;
+                modalImageWrapper.classList.remove('hidden');
+            } else {
+                modalImageWrapper.classList.add('hidden');
+            }
+
+            // Affichage avec transition
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContainer.classList.remove('scale-95');
+            modalContainer.classList.add('scale-100');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContainer.classList.remove('scale-100');
+            modalContainer.classList.add('scale-95');
+            document.body.classList.remove('modal-open');
+        }
+
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const serviceKey = btn.getAttribute('data-service');
+                openModal(serviceKey);
+            });
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Fermeture au clic sur le backdrop
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Fermeture avec la touche Échap
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('pointer-events-none')) {
+                closeModal();
+            }
+        });
+
+        // -------------------------------------------------------------
+        // Menu burger mobile (3 barres)
+        // -------------------------------------------------------------
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const burgerIcon = document.getElementById('burger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileToggle.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.add('hidden');
+                burgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            } else {
+                mobileMenu.classList.remove('hidden');
+                burgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                burgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+
+        // -------------------------------------------------------------
+        // Animations fade-in au scroll (Intersection Observer)
+        // -------------------------------------------------------------
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
