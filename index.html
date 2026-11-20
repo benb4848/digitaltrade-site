@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +15,10 @@
     <meta property="og:image" content="logo-rond.png">
     <meta property="og:type" content="website">
 
-    <!-- Typographies Google Fonts : Bebas Neue (Titres) & Inter (Corps de texte) -->
+    <!-- Preconnect pour accélération des polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS via CDN avec configuration sur-mesure -->
@@ -59,11 +60,11 @@
 
     <!-- Styles sur-mesure pour animations et interactions -->
     <style>
-        /* Animation fade-in au scroll */
+        /* Animation fluide au scroll sans écran blanc */
         .reveal {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(16px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
             will-change: opacity, transform;
         }
 
@@ -93,7 +94,7 @@
         }
     </style>
 </head>
-<body class="bg-surface text-ink font-sans antialiased selection:bg-brand-orange selection:text-white">
+<body class="bg-surface text-ink font-sans antialiased selection:bg-brand-orange selection:text-white overflow-x-hidden">
 
     <!-- ========================================================================= -->
     <!-- 1. HEADER (NAVIGATION FIXE) -->
@@ -168,22 +169,22 @@
         <!-- ========================================================================= -->
         <!-- 2. HERO SECTION -->
         <!-- ========================================================================= -->
-        <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <section class="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
                 
-                <!-- Colonne Texte -->
-                <div class="lg:col-span-7 text-left reveal">
+                <!-- Colonne Texte (Affichage Immédiat Mobile sans délai ni écran blanc) -->
+                <div class="lg:col-span-7 text-left">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-wider mb-6">
                         <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
                         AGENCE DIGITALE NOUVELLE GÉNÉRATION
                     </div>
 
-                    <h1 class="font-title text-5xl sm:text-7xl md:text-8xl text-midnight tracking-tight uppercase leading-[0.95] mb-6">
+                    <h1 class="font-title text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-midnight tracking-tight uppercase leading-[0.95] mb-6">
                         CONSTRUIS TA PRÉSENCE EN LIGNE. <br>
                         <span class="text-brand-orange">VENDS PLUS.</span>
                     </h1>
 
-                    <p class="text-ink-muted text-lg sm:text-xl font-normal leading-relaxed max-w-2xl mb-8">
+                    <p class="text-ink-muted text-base sm:text-lg lg:text-xl font-normal leading-relaxed max-w-2xl mb-8">
                         Nous concevons des sites ultra-rapides, des créatives publicitaires à fort impact et des agents IA intelligents qui automatisent tes ventes et boostent ta croissance.
                     </p>
 
@@ -208,23 +209,25 @@
                     </div>
                 </div>
 
-                <!-- Colonne Image Droite (Unsplash) avec carte flottante -->
-                <div class="lg:col-span-5 reveal">
+                <!-- Colonne Image Droite (Unsplash légère & anti-débordement) -->
+                <div class="lg:col-span-5">
                     <div class="relative mx-auto max-w-md lg:max-w-none">
-                        <div class="absolute -inset-2 bg-gradient-to-tr from-brand-orange/20 to-slate-200 rounded-3xl -rotate-1"></div>
+                        <div class="absolute -inset-1 sm:-inset-2 bg-gradient-to-tr from-brand-orange/20 to-slate-200 rounded-3xl -rotate-1 pointer-events-none"></div>
                         <div class="relative bg-white p-2 rounded-2xl shadow-soft border border-slate-200/60 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop" 
+                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=75&w=650&auto=format&fit=crop" 
                                  alt="Équipe tech et design DigitalTrade Agency" 
-                                 class="w-full h-80 sm:h-96 object-cover rounded-xl"
-                                 loading="eager">
+                                 class="w-full h-72 sm:h-96 object-cover rounded-xl"
+                                 fetchpriority="high"
+                                 width="650"
+                                 height="433">
                             
                             <!-- Carte Flottante Résultats Clients -->
-                            <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-slate-100 shadow-md flex items-center justify-between">
+                            <div class="absolute bottom-5 left-5 right-5 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-xl border border-slate-100 shadow-md flex items-center justify-between">
                                 <div>
-                                    <p class="text-[11px] font-bold text-ink-muted uppercase tracking-wider">RÉSULTATS CLIENTS</p>
-                                    <p class="font-title text-2xl text-midnight tracking-wide">+350% DE CROISSANCE MOYENNE</p>
+                                    <p class="text-[10px] sm:text-[11px] font-bold text-ink-muted uppercase tracking-wider">RÉSULTATS CLIENTS</p>
+                                    <p class="font-title text-xl sm:text-2xl text-midnight tracking-wide">+350% DE CROISSANCE MOYENNE</p>
                                 </div>
-                                <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg">
+                                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-base sm:text-lg flex-shrink-0">
                                     ↗
                                 </div>
                             </div>
@@ -451,11 +454,15 @@
             <div class="bg-white rounded-3xl border border-slate-200/80 shadow-soft overflow-hidden reveal">
                 <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
                     
-                    <!-- Grande image Unsplash Panier de Basketball -->
+                    <!-- Grande image Unsplash Panier de Basketball Optimisée -->
                     <div class="lg:col-span-7 bg-slate-900 relative group overflow-hidden h-80 sm:h-[450px]">
-                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop" 
+                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=75&w=750&auto=format&fit=crop" 
                              alt="Hoopz Corner Showcase" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             loading="lazy"
+                             decoding="async"
+                             width="750"
+                             height="500">
                         
                         <div class="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-transparent"></div>
                         
@@ -1008,23 +1015,28 @@
         });
 
         // -------------------------------------------------------------
-        // Animations fade-in au scroll (Intersection Observer)
+        // Animations fade-in au scroll (Intersection Observer optimisé Mobile)
         // -------------------------------------------------------------
         const revealElements = document.querySelectorAll('.reveal');
 
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: '0px 0px 80px 0px' // Déclenche 80px AVANT que l'utilisateur n'arrive dessus
             });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        });
 
-        revealElements.forEach(el => revealObserver.observe(el));
+            revealElements.forEach(el => revealObserver.observe(el));
+        } else {
+            // Repli immédiat pour tout navigateur sans observer
+            revealElements.forEach(el => el.classList.add('active'));
+        }
     </script>
 </body>
 </html>
